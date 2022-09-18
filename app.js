@@ -7,7 +7,7 @@ const currentScore = document.querySelector('.current-score')
 
 const colors = ['#00FFFF','#F0F8FF','#FAEBD7','#000000','#FAEBD7','#DC143C','#7FFF00','#00FFFF','#8B008B','#FF1493']
 
-let time = 20000
+let time = 0
 let score = 0
 
 
@@ -50,7 +50,7 @@ function decreaseTime() {
     }  
 }
 function setTime(value){
-    timeEl.innerHTML = `00:${time}`
+    timeEl.innerHTML = `00:${value}`
 }
 
 function finishGame() {
@@ -72,7 +72,8 @@ function createRandomCircle() {
     circle.style.top = `${y}px`
     circle.style.left = `${x}px`
     circle.style.background = `${getRandomColor()}`
-
+    circle.onclick= sounds()
+    
     currentScore.innerHTML = `<span> ваш счет: ${score}</span>`
     board.append(circle)
 }
@@ -85,4 +86,11 @@ function getRandomColor() {
     const index = Math.floor(Math.random() *colors.length)
     console.log(colors[index]);
     return colors[index]
+}
+
+function sounds(){
+    var audio = document.createElement('audio');
+    audio.setAttribute("autoplay","true");
+    audio.innerHTML = "<source src=\"drobovik2.mp3\" type=\"audio/mpeg\">";
+    document.body.appendChild(audio);
 }
