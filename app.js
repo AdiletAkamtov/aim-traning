@@ -3,7 +3,7 @@ const screens = document.querySelectorAll('.screen')
 const timeList = document.querySelector('#time-list')
 const timeEl = document.querySelector('#time')
 
-let time = 0
+let time = 3
 
 startBtn.addEventListener('click', (event) => {
     event.preventDefault()
@@ -13,11 +13,39 @@ startBtn.addEventListener('click', (event) => {
 timeList.addEventListener('click', event => {
     if (event.target.classList.contains('time-btn')){
         time = parseInt(event.target.getAttribute('data-time'));
+        screens[1].classList.add('up')
         startGame()
     }
 })
 
+//DEBUG
+startGame()
+
 function startGame() {
-    screens[1].classList.add('up')
+    setInterval(decreaseTime, 1000)
     timeEl.innerHTML = `00:${time}`
+}
+function decreaseTime() {
+    if(time === 0){
+        finishGame()
+    }else{
+        let current = --time
+        if(current < 10){
+            current = `0${current}`
+        }
+        setTime(current)
+    }  
+}
+
+
+function setTime(value){
+    timeEl.innerHTML = `00:${time}`
+}
+
+function finishGame() {
+    
+}
+
+function createRandomCircle() {
+    const circle = document.createElement
 }
