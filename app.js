@@ -4,7 +4,7 @@ const timeList = document.querySelector('#time-list')
 const timeEl = document.querySelector('#time')
 const board = document.querySelector('#board')
 
-let time = 3
+let time = 0
 let score = 0
 
 startBtn.addEventListener('click', (event) => {
@@ -27,9 +27,6 @@ board.addEventListener('click',event => {
         createRandomCircle()
     }
 })
-
-//DEBUG
-startGame()
 
 function startGame() {
     setInterval(decreaseTime, 1000)
@@ -54,7 +51,8 @@ function setTime(value){
 }
 
 function finishGame() {
-    board.innerHTML = `<h1>Игра окончена <br> Счет:${score} </h1>`
+    board.innerHTML = `<h1 class="primary">Игра окончена <br> Счет:${score} </h1>`
+    timeEl.parentNode.classList.add('hide')
 }
 
 function createRandomCircle() {
