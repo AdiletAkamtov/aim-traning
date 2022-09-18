@@ -3,9 +3,14 @@ const screens = document.querySelectorAll('.screen')
 const timeList = document.querySelector('#time-list')
 const timeEl = document.querySelector('#time')
 const board = document.querySelector('#board')
+const currentScore = document.querySelector('.current-score')
 
-let time = 0
+const colors = ['#00FFFF','#F0F8FF','#FAEBD7','#000000','#FAEBD7','#DC143C','#7FFF00','#00FFFF','#8B008B','#FF1493']
+
+let time = 20000
 let score = 0
+
+
 
 startBtn.addEventListener('click', (event) => {
     event.preventDefault()
@@ -44,8 +49,6 @@ function decreaseTime() {
         setTime(current)
     }  
 }
-
-
 function setTime(value){
     timeEl.innerHTML = `00:${time}`
 }
@@ -56,8 +59,9 @@ function finishGame() {
 }
 
 function createRandomCircle() {
+    
     const circle = document.createElement('div')
-    const size = getRandomNumber(20, 80)
+    const size = getRandomNumber(10, 40)
     const {width, height} = board.getBoundingClientRect()
     const x = getRandomNumber(0,width -size)
     const y = getRandomNumber(0,height - size)
@@ -66,11 +70,19 @@ function createRandomCircle() {
     circle.style.width = `${size}px`
     circle.style.height = `${size}px`
     circle.style.top = `${y}px`
-    circle.style.top = `${x}px`
+    circle.style.left = `${x}px`
+    circle.style.background = `${getRandomColor()}`
 
+    currentScore.innerHTML = `<span> ваш счет: ${score}</span>`
     board.append(circle)
 }
 
 function getRandomNumber(min, max) {
    return Math.round(Math.random() * (max - min) + min)
+}
+
+function getRandomColor() {
+    const index = Math.floor(Math.random() *colors.length)
+    console.log(colors[index]);
+    return colors[index]
 }
