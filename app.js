@@ -99,13 +99,13 @@ const radio = new Audio()
 radio.src =
 	'https://assets.mixkit.co/sfx/preview/mixkit-hard-single-key-press-in-a-laptop-2542.mp3'
 radio.volume = 1
-
+radio.muted = false
 function disableMute() {
 	radio.muted = !radio.muted
 	if (radio.muted === true) {
 		document.querySelector('.mutestyle').innerHTML = 'off sound'
 	} else {
-		document.querySelector('.mutestyle').innerHTML = 'off sound'
+		document.querySelector('.mutestyle').innerHTML = 'on sound'
 	}
 }
 
