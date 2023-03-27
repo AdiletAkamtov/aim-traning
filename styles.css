@@ -119,17 +119,26 @@ h1 {
 	width: 100px;
 	height: 40px;
 	cursor: pointer;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
 }
 #mutedon {
 	width: 100px;
 	height: 40px;
 }
-.active {
+.restart {
 	margin-top: 10px;
 	padding: 10px;
 	border: #16d9e3 1px solid;
 	width: 100px;
 	height: 40px;
 	cursor: pointer;
-	color: #dd0b62;
+	background: none;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+}
+.restart:hover {
+	border: #9bf0f5 2px solid;
 }

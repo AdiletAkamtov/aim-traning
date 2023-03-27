@@ -105,7 +105,7 @@ function disableMute() {
 	if (radio.muted === true) {
 		document.querySelector('.mutestyle').innerHTML = 'off sound'
 	} else {
-		document.querySelector('.mutestyle').innerHTML = 'on sound'
+		document.querySelector('.mutestyle').innerHTML = 'off sound'
 	}
 }
 
